@@ -13,9 +13,9 @@ var app = module.exports = express.createServer();
 io = io.listen(app);
 
 if (process.env.USE_XHTTPR) {
-	  io.configure(function () {
-	  io.set("transports", ["xhr-polling"]);
-	  io.set("polling duration", 10);
+        io.configure(function () {
+        io.set("transports", ["xhr-polling"]);
+        io.set("polling duration", 10);
 	});
 }
 
@@ -45,7 +45,7 @@ io.sockets.on('connection', function (socket) {
 				socket.emit ('api', {cb:data.cb,response:response});
 			})
 			.on('error', function(error){
-			  socket.emit ('api', {cb:data.cb,error:error});
+                socket.emit ('api', {cb:data.cb,error:error});
 			}).end();
 	});
 });
